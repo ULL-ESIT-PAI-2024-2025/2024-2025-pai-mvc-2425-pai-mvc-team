@@ -10,7 +10,7 @@ class Model {
 
   bindTodoListChanged(callback) {
     this.onTodoListChanged = callback
-  }
+  } 
 
   _commit(todos) {
     this.onTodoListChanged(todos)

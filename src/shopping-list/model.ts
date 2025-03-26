@@ -11,10 +11,18 @@
  */
 
 /**
+ * The data of an item in the shopping list.
+ */
+export type ItemData = {
+  name: string;
+  id: number;
+}
+
+/**
  * Model component of the shopping list.
  */
 export class Model {
-  private items: string[];
+  private items: ItemData[];
   /**
    * Creates a new Model, with an empty array of items.
    */
@@ -26,23 +34,34 @@ export class Model {
    * Adds an item to the shopping list.
    * @param item - The item to add to the list.
    */
-  public addItem(item: string): void {
+  public addItem(item: ItemData): void {
     this.items.push(item);
   }
 
   /**
    * Removes an item from the shopping list.
-   * @param item - The item to remove from the list.
+   * @param itemId - The id of the item to remove from the list.
    */
-  public removeItem(item: string): void {
-    this.items = this.items.splice(this.items.indexOf(item), 1)
+  public removeItem(itemId: number): void {
+    const index = this.items.findIndex((item) => item.id === itemId);
+    if (index !== -1) {
+      this.items.splice(index, 1);
+    }
   }
 
   /**
    * Returns the shopping list.
    * @returns The shopping list.
    */
-  public getItems(): string[] {
+  public getItems(): ItemData[] {
     return this.items;
+  }
+
+  /**
+   * Returns the last id of the shopping list.
+   * @returns The last id of the shopping list.
+   */
+  public getLastId(): number {
+    return this.items[this.items.length - 1]?.id ?? -1;
   }
 }

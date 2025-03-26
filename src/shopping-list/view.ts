@@ -9,7 +9,7 @@
  * @desc View class for the shopping list
  * @see {@link https://github.com/taniarascia/mvc}
  */
-
+import { ItemData } from './model.js';
 /**
  * View component of the shopping list.
  */
@@ -19,7 +19,8 @@ export class View {
   private input: HTMLInputElement;
   private submitButton: HTMLButtonElement;
   private title: HTMLHeadingElement;
-  private todoList: HTMLUListElement;
+  private itemList: HTMLUListElement;
+
   /**
    * Creates a new View object. Creating all the elements in the HTML.
    */
@@ -34,17 +35,34 @@ export class View {
     // Input element (text)
     this.input = this.createElement('input')! as HTMLInputElement;
     this.input.type = 'text';
-    this.input.placeholder = 'Add product';
-    this.input.name = 'product';
+    this.input.placeholder = 'Add item';
+    this.input.name = 'item';
     // Submit button
     this.submitButton = this.createElement('button')! as HTMLButtonElement;
     this.submitButton.textContent = 'Submit'
     this.form.append(this.input, this.submitButton)
-    // The list of products will be displayed here
-    this.todoList = this.createElement('ul', 'todo-list')! as HTMLUListElement;
-    this.app.append(this.title, this.form, this.todoList)
+    // The list of items will be displayed here
+    this.itemList = this.createElement('ul', 'item-list')! as HTMLUListElement;
+    this.app.append(this.title, this.form, this.itemList)
     // this._initLocalListeners()
   }
+
+  public getForm(): HTMLFormElement {
+    return this.form;
+  }
+
+  public getInput(): HTMLInputElement {
+    return this.input;
+  }
+
+  public getSubmitButton(): HTMLButtonElement {
+    return this.submitButton;
+  }
+
+  public getItemList(): HTMLUListElement {
+    return this.itemList;
+  }
+
 
   /**
    * Creates an element with a tag and a class name
@@ -53,10 +71,41 @@ export class View {
    * @returns created element
    */
   private createElement(tag: string, className?: string): HTMLElement {
-    const element = document.createElement(tag)
+    const element = document.createElement(tag);
     if (className) {
-      element.classList.add(className)
+      element.classList.add(className);
     }
     return element;
+  }
+
+  /**
+   * Display the items in the shopping list
+   * @param items items to display
+   */
+  public displayItems(items: ItemData[]): void {
+    // Delete all nodes
+    while (this.itemList.firstChild) {
+      this.itemList.removeChild(this.itemList.firstChild);
+    }
+
+    // Show default message
+    if (items.length === 0) {
+      const baseParagraph: HTMLParagraphElement = this.createElement('p')! as
+        HTMLParagraphElement;
+      baseParagraph.textContent = 'Nothing to buy! Add a item?'
+      this.itemList.append(baseParagraph);
+    } else {
+      for (const item of items) {
+        const listElement: HTMLLIElement = this.createElement('li')! as
+          HTMLLIElement;
+        listElement.textContent = item.name;
+        listElement.id = item.id.toString();
+        const deleteButton: HTMLButtonElement =
+          this.createElement('button', 'delete')! as HTMLButtonElement;
+        deleteButton.textContent = 'Delete';
+        listElement.append(deleteButton);
+        this.itemList.append(listElement);
+      }
+    }
   }
 }

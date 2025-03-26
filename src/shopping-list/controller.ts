@@ -10,7 +10,66 @@
  * @see {@link https://github.com/taniarascia/mvc}
  */
 
+import { ItemData, Model } from './model.js'
+import { View } from './view.js'
+
 /**
  * Controller component of the shopping list.
  */
-export class Controller {}
+export class Controller {
+  /**
+   * Creates a new Controller object.
+   * @param model - The model of the shopping list.
+   * @param view - The view of the shopping list.
+   */
+  constructor(private model: Model, private view: View) {
+    this.displayChanges(this.model.getItems());
+    this.view.getForm().addEventListener('submit', this.handleAddItem);
+    this.view.getItemList().addEventListener('click', this.handleDeleteItem);
+  }
+
+  /**
+   * Handles the deletion of an item.
+   * @param event - The event that triggered the deletion.
+   */
+  private handleDeleteItem = (event: Event): void => {
+    const target: HTMLElement = event.target as HTMLElement;
+    const id: string | undefined = target.parentElement?.id;
+    if (target?.classList?.contains('delete') && id) {
+      this.model.removeItem(parseInt(id!));
+      this.displayChanges(this.model.getItems());
+    }
+  }
+
+  /**
+   * Handles the addition of a new item.
+   * @param event - The event that triggered the addition.
+   */
+  private handleAddItem = (event: Event): void => {
+    // Since we are using a form which contains a submit button.
+    // The form is submitted when the button is clicked,
+    // we need to prevent the default behavior of the form
+    // to avoid the page to reload.
+    event.preventDefault();
+    const input: HTMLInputElement = this.view.getInput();
+    if (input.value) {
+      const item: ItemData = {
+        id: this.model.getLastId() + 1,
+        name: input.value
+      };
+      this.model.addItem(item);
+      this.displayChanges(this.model.getItems());
+      // Resets the input field
+      input.value = '';
+    }
+  }
+
+
+  /**
+   * Tells the view to display the items.
+   * @param items changed items
+   */
+  private displayChanges(items: ItemData[]): void {
+    this.view.displayItems(items);
+  }
+}

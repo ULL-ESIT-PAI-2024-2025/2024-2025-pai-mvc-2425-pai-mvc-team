@@ -11,7 +11,7 @@
     "test": "jest",
     "lint:ci": "eslint . --ext .tsx,.ts",
     "doc": "typedoc",
-    "dstart": "node src/home-work/web-server/app.js",
+    "dstart": "node src/shopping-list/web-server/app.js",
     "start": "npm run doc && npm run dstart"
   },
   "keywords": [
