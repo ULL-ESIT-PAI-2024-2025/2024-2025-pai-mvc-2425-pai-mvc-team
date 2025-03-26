@@ -20,11 +20,6 @@ import { Controller } from '../controller.js';
 function main(): void {
   const model: Model = new Model();
   const view: View = new View();
-  // model.addItem('Learn MVC');
-  // model.addItem('Master JavaScript');
-  // model.addItem('Learn TypeScript');
-  // view.displayItems(model.getItems());
-  // console.log(view);
   const controller: Controller = new Controller(model, view);
   console.log(controller);
 }
