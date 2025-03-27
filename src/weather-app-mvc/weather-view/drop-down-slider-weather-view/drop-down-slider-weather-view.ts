@@ -6,15 +6,18 @@
  * Patrón Modelo Vista Controlador
  *
  * @since Tue 25 Mar 2025 
- * @desc View class for the weather app
- * @see {@link https://github.com/taniarascia/mvc}
+ * @desc View using a drop down list and a slider class for 
+ * the weather app
+ * @see {@link https://github.com/ULL-ESIT-PAI-2024-2025/2024-2025-pai-mvc-2425-pai-mvc-team}
  */
-import { ForecastDay, WeatherData } from './data-types.js';
+import { ForecastDay, WeatherData } from '../../data-types.js';
+import { WeatherView } from '../weather-view.js';
 
 /**
- * View component of the weather app.
+ * View using a drop down list and a slider 
+ * component of the weather app.
  */
-export class View {
+export class DropDownSliderWeatherView implements WeatherView {
   private app: HTMLDivElement;
   private title: HTMLHeadingElement;
   private weatherList: HTMLUListElement;
@@ -43,12 +46,17 @@ export class View {
     this.locationSelect = this.createDropdownList();
     // Slider to select the number of days to forecast
     this.daysSliderContainer = this.createSlider();
+    // Updates the slider text value
+    this.getNumberOfDaysElement().addEventListener('input', (event: Event) => {
+      const target: HTMLInputElement = event.target as HTMLInputElement;
+      this.updateSliderTextValue(target.value);
+    });
     // Submit button
     this.submitButton = this.createElement('button')! as HTMLButtonElement;
     this.submitButton.textContent = 'Submit';
     // Append all elements to the root element
-    this.app.append(this.title, this.locationSelect, this.daysSliderContainer, 
-      this.submitButton, this.weatherList );
+    this.app.append(this.title, this.locationSelect, this.daysSliderContainer,
+      this.submitButton, this.weatherList);
   }
 
   /**
@@ -56,6 +64,7 @@ export class View {
    * @param weatherData weather data to display
    */
   public displayWeather(weatherData: WeatherData): void {
+    this.updateSliderTextValue(this.getNumberOfDaysElement().value);
     // Delete all nodes
     while (this.weatherList.firstChild) {
       this.weatherList.removeChild(this.weatherList.firstChild);
@@ -73,7 +82,7 @@ export class View {
           HTMLLIElement;
         listElement.textContent = this.formatDailyForecast(forecast);
         const image: HTMLImageElement =
-          this.createWeatherImage(forecast.day.daily_chance_of_rain);
+          this.createWeatherImage(forecast);
         listElement.append(image);
         this.weatherList.append(listElement);
       }
@@ -83,7 +92,7 @@ export class View {
   /**
    * Updates the slider text value
    */
-  public updateSliderTextValue(displayValue: string): void {
+  private updateSliderTextValue(displayValue: string): void {
     this.daysSliderContainer.querySelector('.slider-value')!.textContent =
       displayValue;
   }
@@ -92,28 +101,28 @@ export class View {
    * Get the slider element
    * @returns slider element
    */
-  public getSlider(): HTMLInputElement {
+  public getNumberOfDaysElement(): HTMLInputElement {
     // We prefix the class name with a dot to tell the querySelector
     // that we are looking for a class name.
     return this.daysSliderContainer.querySelector('.slider')!;
-  }
-  
-  /**
-   * Get the submit button element
-   * @returns submit button element
-   */
-  public getSubmitButton(): HTMLButtonElement {
-    return this.submitButton;
   }
 
   /**
    * Get the location select element
    * @returns location select element
    */
-  public getLocationSelect(): HTMLSelectElement {
+  public getLocationElement(): HTMLSelectElement {
     return this.locationSelect;
   }
- 
+
+  /**
+   * Get the submit button element
+   * @returns submit button element
+   */
+  public getSumbitChangesElement(): HTMLButtonElement {
+    return this.submitButton;
+  }
+
   /**
    * Creates a slider to select the number of days to forecast
    */
@@ -124,7 +133,7 @@ export class View {
       HTMLLabelElement;
     labelTitle.textContent = 'Select the numbers of days: ';
     sliderContainer.append(labelTitle);
-    const slider: HTMLInputElement = this.createElement('input','slider')! as
+    const slider: HTMLInputElement = this.createElement('input', 'slider')! as
       HTMLInputElement;
     slider.type = 'range';
     slider.min = '1';
@@ -132,7 +141,7 @@ export class View {
     slider.value = '5';
     slider.step = '1';
     sliderContainer.append(slider);
-    const sliderValue: HTMLLabelElement = this.createElement('label', 
+    const sliderValue: HTMLLabelElement = this.createElement('label',
       'slider-value')! as HTMLLabelElement;
     sliderValue.textContent = slider.value;
     sliderContainer.append(sliderValue);
@@ -178,15 +187,13 @@ export class View {
   /**
    * Create an image element with the weather icon based on the
    * chance to rain
-   * @param chanceToRain number between 0 and 1 representing the 
-   * chance to rain
+   * @param forecast daily forecast
    * @returns image element with the weather icon
    */
-  private createWeatherImage(chanceToRain: number): HTMLImageElement {
+  private createWeatherImage(forecast: ForecastDay): HTMLImageElement {
     const image: HTMLImageElement = this.createElement('img')! as HTMLImageElement;
-    const rainThreshold: number = 0.5;
     const imageSize: number = 100;
-    image.src = this.imageBasePath + ((chanceToRain > rainThreshold) ?
+    image.src = this.imageBasePath + (forecast.day.isRainy ?
       'rain.png' : 'sun.png');
     image.width = imageSize;
     image.height = imageSize;

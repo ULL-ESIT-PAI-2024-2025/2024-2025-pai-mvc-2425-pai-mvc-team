@@ -7,7 +7,7 @@
  *
  * @since Tue 25 Mar 2025 
  * @desc Gets the player data from the server
- * @see {@link https://github.com/taniarascia/mvc}
+ * @see {@link https://github.com/ULL-ESIT-PAI-2024-2025/2024-2025-pai-mvc-2425-pai-mvc-team}
  */
 import { WeatherData } from '../weather-app-mvc/data-types';
 /**

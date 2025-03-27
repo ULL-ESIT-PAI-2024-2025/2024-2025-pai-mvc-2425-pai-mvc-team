@@ -16,7 +16,6 @@
 export type WeatherData = {
   location: LocationData;
   forecast: ForecastData;
-
 };
 
 /**
@@ -34,6 +33,7 @@ export type ForecastDay = {
   day: {
     avgtemp_c: number;
     daily_chance_of_rain: number;
+    isRainy: boolean;
   };
 };
 

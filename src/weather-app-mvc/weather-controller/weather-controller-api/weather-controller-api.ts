@@ -6,32 +6,34 @@
  * Patrón Modelo Vista Controlador
  *
  * @since Tue 25 Mar 2025 
- * @desc Controller class for the weather app
- * @see {@link https://github.com/taniarascia/mvc}
+ * @desc Controller that uses the api
+ * @see {@link https://github.com/ULL-ESIT-PAI-2024-2025/2024-2025-pai-mvc-2425-pai-mvc-team}
  */
 
-import { Model } from './model.js';
-import { View } from './view.js';
+import { WeatherModel } from '../../weather-model/weather-model.js';
+import { WeatherView } from '../../weather-view/weather-view.js';
+import { WeatherController } from '../weather-controller.js';
 
 /**
- * Controller component of the weather app.
+ * WeatherControllerApi component of the weather app.
  */
-export class Controller {
+export class WeatherControllerApi extends WeatherController {
   /**
-   * Creates a new Controller object.
+   * Creates a new WeatherControllerApi object.
    * @param model - The model of the weather app.
    * @param view - The view of the weather app.
    */
-  constructor(private model: Model, private view: View) {
-    this.view.getSlider().addEventListener('input', this.handleSlider);
-    this.view.getLocationSelect().addEventListener('change', this.handleLocationSelection);
-    this.view.getSubmitButton().addEventListener('click', this.displayWeather);
+  constructor(model: WeatherModel, view: WeatherView) {
+    super(model, view);
+    this.view.getNumberOfDaysElement().addEventListener('input', this.handleNumberOfDaysElement);
+    this.view.getLocationElement().addEventListener('change', this.handleLocationElement);
+    this.view.getSumbitChangesElement().addEventListener('click', this.handleSumbitChangesElement);
   }
 
   /**
    * Display the weather forecast data with the given input
    */
-  public displayWeather = async (): Promise<void> => {
+  override handleSumbitChangesElement = async (): Promise<void> => {
     const data = await this.model.getData();
     this.view.displayWeather(data);
   }
@@ -41,18 +43,17 @@ export class Controller {
    * updating the slider text value
    * @param event event
    */
-  private handleSlider = (event: Event): void => {
+  override handleNumberOfDaysElement = (event: Event): void => {
     const target: HTMLInputElement = event.target as HTMLInputElement;
     const numberOfDays: number = parseInt(target.value);
     this.model.setDays(numberOfDays);
-    this.view.updateSliderTextValue(target.value);
   }
 
   /**
    * Handles the location select event, setting the location in the model
    * @param event event to handle
    */
-  private handleLocationSelection = (event: Event): void => {
+  override handleLocationElement = (event: Event): void => {
     const target: HTMLSelectElement = event.target as HTMLSelectElement;
     const location: string = target.value;
     this.model.setLocation(location);
