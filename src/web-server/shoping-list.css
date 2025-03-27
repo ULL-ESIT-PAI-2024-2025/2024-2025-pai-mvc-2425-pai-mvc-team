@@ -13,13 +13,13 @@ form {
 button {
   cursor: pointer;
   background: CornflowerBlue;
-  color: white;
+  color: black;
   border: 2px solid MidnightBlue;
   margin: 0.5rem;
 }
 
 h1 {
-  color: RoyalBlue;
+  color: black;
 }
 
 ul {
@@ -31,7 +31,7 @@ li {
   align-items: center;
   padding: 1rem;
   margin-bottom: 1rem;
-  background: DodgerBlue;
+  background: LightCyan;
   border-radius: 4px;
 }
 

@@ -10,8 +10,9 @@
  * @see {@link https://github.com/taniarascia/mvc}
  */
 
-import { ItemData, Model } from './model.js'
+import { Model } from './model.js'
 import { View } from './view.js'
+import { ItemData } from './data-types.js'
 
 /**
  * Controller component of the shopping list.
@@ -48,16 +49,12 @@ export class Controller {
   private handleAddItem = (event: Event): void => {
     // Since we are using a form which contains a submit button.
     // The form is submitted when the button is clicked,
-    // we need to prevent the default behavior of the form
-    // to avoid the page to reload.
+    // we need to prevent the default behavior of sending
+    // the form to avoid the page to reload.
     event.preventDefault();
     const input: HTMLInputElement = this.view.getInput();
     if (input.value) {
-      const item: ItemData = {
-        id: this.model.getLastId() + 1,
-        name: input.value
-      };
-      this.model.addItem(item);
+      this.model.addItem(input.value);
       this.displayChanges(this.model.getItems());
       // Resets the input field
       input.value = '';

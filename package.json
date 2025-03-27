@@ -11,8 +11,9 @@
     "test": "jest",
     "lint:ci": "eslint . --ext .tsx,.ts",
     "doc": "typedoc",
-    "dstart": "node src/shopping-list/web-server/app.js",
-    "start": "npm run doc && npm run dstart"
+    "compile": "rm -rf /dist && tsc",
+    "start": "node src/web-server/app.js",
+    "dstart": "npm run doc && npm run dstart"
   },
   "keywords": [
     "PAI"

@@ -9,15 +9,7 @@
  * @desc Model class for the shopping list
  * @see {@link https://github.com/taniarascia/mvc}
  */
-
-/**
- * The data of an item in the shopping list.
- */
-export type ItemData = {
-  name: string;
-  id: number;
-}
-
+import { ItemData } from './data-types.js';
 /**
  * Model component of the shopping list.
  */
@@ -34,8 +26,12 @@ export class Model {
    * Adds an item to the shopping list.
    * @param item - The item to add to the list.
    */
-  public addItem(item: ItemData): void {
-    this.items.push(item);
+  public addItem(item: string): void {
+    const newItem: ItemData = {
+      name: item,
+      id: this.getLastId() + 1,
+    };
+    this.items.push(newItem);
   }
 
   /**
@@ -61,7 +57,7 @@ export class Model {
    * Returns the last id of the shopping list.
    * @returns The last id of the shopping list.
    */
-  public getLastId(): number {
+  private getLastId(): number {
     return this.items[this.items.length - 1]?.id ?? -1;
   }
 }

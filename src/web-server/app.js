@@ -23,9 +23,19 @@ app.set('port', 8080);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-app.use(express.static(path.join(__dirname, '../')));
-app.use('/shopping-list', express.static(path.join(__dirname, '../../../dist/src/shopping-list/')));
-
+app.use(express.static(__dirname));
+app.use(
+  '/shopping-list-mvc', 
+  express.static(
+    path.join(__dirname, '../../dist/src/shopping-list-mvc/')
+  )
+);
+app.use(
+  '/shopping-list-god-class',
+  express.static(
+    path.join(__dirname, '../../dist/src/shopping-list-god-class/')
+  )
+);
 // Start the server and listens for requests on the specified port
 const SERVER = app.listen(app.get('port'), '0.0.0.0', function () {
   console.log('The server is running on http://10.6.128.30:' + app.get('port'));

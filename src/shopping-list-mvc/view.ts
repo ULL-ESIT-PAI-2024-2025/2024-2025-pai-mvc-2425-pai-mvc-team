@@ -9,7 +9,7 @@
  * @desc View class for the shopping list
  * @see {@link https://github.com/taniarascia/mvc}
  */
-import { ItemData } from './model.js';
+import { ItemData } from './data-types.js';
 /**
  * View component of the shopping list.
  */
@@ -44,21 +44,30 @@ export class View {
     // The list of items will be displayed here
     this.itemList = this.createElement('ul', 'item-list')! as HTMLUListElement;
     this.app.append(this.title, this.form, this.itemList)
-    // this._initLocalListeners()
   }
 
+  /**
+   * Gets the form element (used to assign event listeners
+   * in the controller)
+   * @returns form element
+   */
   public getForm(): HTMLFormElement {
     return this.form;
   }
 
+  /**
+   * Gets the input element (used to get the value in the controller)
+   * @returns input element
+   */
   public getInput(): HTMLInputElement {
     return this.input;
   }
 
-  public getSubmitButton(): HTMLButtonElement {
-    return this.submitButton;
-  }
-
+  /**
+   * Gets the item list element (used to assign event listeners
+   * in the controller)
+   * @returns item list element
+   */
   public getItemList(): HTMLUListElement {
     return this.itemList;
   }
