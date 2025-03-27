@@ -27,19 +27,19 @@ app.use(express.static(__dirname));
 app.use(
   '/shopping-list-mvc', 
   express.static(
-    path.join(__dirname, '../../dist/src/shopping-list-mvc/')
+    path.join(__dirname, '../../../dist/src/shopping-list/shopping-list-mvc/')
   )
 );
 app.use(
   '/shopping-list-god-class',
   express.static(
-    path.join(__dirname, '../../dist/src/shopping-list-god-class/')
+    path.join(__dirname, '../../../dist/src/shopping-list/shopping-list-god-class/')
   )
 );
 app.use(
   '/shopping-list-function',
   express.static(
-    path.join(__dirname, '../../dist/src/shopping-list-function/')
+    path.join(__dirname, '../../../dist/src/shopping-list/shopping-list-function/')
   )
 );
 // Start the server and listens for requests on the specified port
