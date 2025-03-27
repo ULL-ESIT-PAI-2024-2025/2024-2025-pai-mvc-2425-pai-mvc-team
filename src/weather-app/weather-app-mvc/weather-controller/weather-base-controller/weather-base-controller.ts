@@ -17,7 +17,7 @@ import { WeatherController } from '../weather-controller.js';
 /**
  * WeatherControllerApi component of the weather app.
  */
-export class WeatherControllerApi extends WeatherController {
+export class WeatherBaseController extends WeatherController {
   /**
    * Creates a new WeatherControllerApi object.
    * @param model - The model of the weather app.
