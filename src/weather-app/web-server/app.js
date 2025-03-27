@@ -27,14 +27,14 @@ app.use(express.static(__dirname));
 app.use(
   '/weather-app-mvc', 
   express.static(
-    path.join(__dirname, '../../dist/src/weather-app-mvc/')
+    path.join(__dirname, '../../../dist/src/weather-app-mvc/')
   )
 );
 
 app.use(
   '/fetch-data', 
   express.static(
-    path.join(__dirname, '../../dist/src/fetch-data/')
+    path.join(__dirname, '../../../dist/src/fetch-data/')
   )
 );
 
