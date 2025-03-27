@@ -21,29 +21,6 @@ const app = express();
 //set the port
 app.set('port', 8080);
 
-const API_KEY = '307b0af477e64520b4a103306252703';
-const BASE_URL = 'http://api.weatherapi.com/v1';
-const ENDPOINT = 	'/forecast.json';
-const LOCATION = 'Tenerife';
-const DAYS = 10;
-
-// URL for the weather API
-
-// define a route for fetching data
-// When a GET request is made to the '/data' endpoint, the code inside the callback function will be executed. 
-// The function uses node-fetch to make a request to an external API, then sends the response as JSON to the client.
-app.get('/data', async (req, res) => {
-  try {
-    const URL = `${BASE_URL}${ENDPOINT}?key=${API_KEY}&q=${LOCATION}&days=${DAYS}`;
-    const response = await fetch(URL);
-    const json = await response.json();
-    res.json(json);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('An error occurred while fetching data.');
-  }
-});
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 app.use(express.static(__dirname));
@@ -58,6 +35,13 @@ app.use(
   '/fetch-data', 
   express.static(
     path.join(__dirname, '../../dist/src/fetch-data/')
+  )
+);
+
+app.use(
+  '/resources',
+  express.static(
+    path.join(__dirname, './resources/')
   )
 );
 // Start the server and listens for requests on the specified port

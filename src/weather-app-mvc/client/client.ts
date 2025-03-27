@@ -10,17 +10,17 @@
  * @see {@link https://github.com/taniarascia/mvc}
  */
 
-import { fetchData } from "../../fetch-data/fetch-data.js";
-import { WeatherData } from "../../weather-app-mvc/data-types.js";
+import { Controller } from "../controller.js";
+import { Model } from "../model.js";
+import { View } from "../view.js";
 /**
  * @brief Main function. Emulates the main function in C++.
  */
 async function main(): Promise<void> {
-  const data: WeatherData = await fetchData();
-  for (const [key, value] of Object.entries(data)) {
-    console.log(`${key}: ${value}`);
-  }
-
+  const model:Model = new Model();
+  const view:View = new View();
+  const controller:Controller = new Controller(model, view);
+  await controller.displayWeather();
 }
 
 main();

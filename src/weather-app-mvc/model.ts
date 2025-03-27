@@ -15,22 +15,22 @@ import { WeatherData } from './data-types.js';
  */
 export class Model {
   private readonly API_KEY: string = '307b0af477e64520b4a103306252703';
-  private readonly BASE_URL: string = 'http://api.weatherapi.com/v1';
+  private readonly PAGE_URL: string = 'http://api.weatherapi.com/v1';
   private readonly ENDPOINT: string = '/forecast.json';
+  private readonly BASE_URL: string =
+    `${this.PAGE_URL}${this.ENDPOINT}?key=${this.API_KEY}`;
   /**
    * Creates a new Model
    */
-  constructor(
-    private LOCATION: string = 'Tenerife',
-    private DAYS: number = 10) { }
+  constructor() { }
 
   /**
    * Get the weather data
    * @returns a promise with the weather data
    */
-  private async getData(days?: number, location?: string): Promise<WeatherData> {
+  public async getData(days?: number, location?: string): Promise<WeatherData> {
     try {
-      const URL = `${this.BASE_URL}${this.ENDPOINT}?key=${this.API_KEY}&q=${this.LOCATION}&days=${this.DAYS}`;
+      const URL: string = this.BASE_URL + `&q=${location}&days=${days}`;
       const response = await fetch(URL);
       const json = await response.json();
       return json;

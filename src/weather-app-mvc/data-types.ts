@@ -34,7 +34,6 @@ export type ForecastDay = {
   day: {
     avgtemp_c: number;
     daily_chance_of_rain: number;
-    icon: string;
   };
 };
 

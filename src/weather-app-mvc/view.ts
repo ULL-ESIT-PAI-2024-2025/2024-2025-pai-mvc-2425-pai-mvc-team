@@ -9,7 +9,7 @@
  * @desc View class for the weather app
  * @see {@link https://github.com/taniarascia/mvc}
  */
-import { WeatherData } from './data-types.js';
+import { ForecastDay, WeatherData } from './data-types.js';
 
 /**
  * View component of the weather app.
@@ -18,6 +18,7 @@ export class View {
   private app: HTMLDivElement;
   private title: HTMLHeadingElement;
   private weatherList: HTMLUListElement;
+  private readonly imageBasePath: string = 'resources/';
 
   /**
    * Creates a new View object. Creating all the elements in the HTML.
@@ -64,14 +65,43 @@ export class View {
       baseParagraph.textContent = 'No weather data available!';
       this.weatherList.append(baseParagraph);
     } else {
-      
       for (const forecast of weatherData.forecast.forecastday) {
         const listElement: HTMLLIElement = this.createElement('li')! as
           HTMLLIElement;
-        listElement.textContent = 
-          `${forecast.date}: ${forecast.day.icon}`;
+        listElement.textContent = this.formatDailyForecast(forecast);
+        const image: HTMLImageElement =
+          this.createWeatherImage(forecast.day.daily_chance_of_rain);
+        listElement.append(image);
         this.weatherList.append(listElement);
       }
     }
+  }
+
+  /**
+   * Create an image element with the weather icon based on the
+   * chance to rain
+   * @param chanceToRain number between 0 and 1 representing the 
+   * chance to rain
+   * @returns image element with the weather icon
+   */
+  private createWeatherImage(chanceToRain: number): HTMLImageElement {
+    const image: HTMLImageElement = this.createElement('img')! as HTMLImageElement;
+    const rainThreshold: number = 0.5;
+    image.src = this.imageBasePath + ((chanceToRain > rainThreshold) ? 
+      'rain.jpg' : 'sun.jpg');
+    image.width = 100;
+    image.height = 100;
+    return image;
+  }
+
+  /**
+   * Format the daily forecast
+   * @param forecast daily forecast
+   * @returns formatted string with the daily forecast
+   */
+  private formatDailyForecast(forecast: ForecastDay): string {
+    return 'Date: ' + forecast.date + ', ' +
+      'Average temperature: ' + forecast.day.avgtemp_c + '°C, ' +
+      'Chance of rain: ' + forecast.day.daily_chance_of_rain + '%';
   }
 }
