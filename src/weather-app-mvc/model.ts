@@ -19,18 +19,25 @@ export class Model {
   private readonly ENDPOINT: string = '/forecast.json';
   private readonly BASE_URL: string =
     `${this.PAGE_URL}${this.ENDPOINT}?key=${this.API_KEY}`;
+  private location: string;
+  private days: number;
+
   /**
    * Creates a new Model
    */
-  constructor() { }
+  constructor() { 
+    this.location = 'Tenerife';
+    this.days = 5;
+  } 
 
   /**
    * Get the weather data
    * @returns a promise with the weather data
    */
-  public async getData(days?: number, location?: string): Promise<WeatherData> {
+  public async getData(): Promise<WeatherData> {
     try {
-      const URL: string = this.BASE_URL + `&q=${location}&days=${days}`;
+      const URL: string = this.BASE_URL + 
+        `&q=${this.location}&days=${this.days}`;
       const response = await fetch(URL);
       const json = await response.json();
       return json;
@@ -38,5 +45,21 @@ export class Model {
       console.error(error);
       throw new Error('An error occurred while fetching data.');
     }
+  }
+
+  /**
+   * Sets the number of days to get the weather data
+   * @param days number of days
+   */
+  public setDays(days: number) {
+    this.days = days;
+  }
+
+  /**
+   * Sets the location to get the weather data
+   * @param location location
+   */
+  public setLocation(location: string) {
+    this.location = location;
   }
 }

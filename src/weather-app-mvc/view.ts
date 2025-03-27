@@ -18,7 +18,15 @@ export class View {
   private app: HTMLDivElement;
   private title: HTMLHeadingElement;
   private weatherList: HTMLUListElement;
+  private locationSelect: HTMLSelectElement;
+  private daysSliderContainer: HTMLDivElement;
+  private submitButton: HTMLButtonElement;
   private readonly imageBasePath: string = 'resources/';
+  private readonly availableLocations: string[] = [
+    'Tenerife', 'Madrid',
+    'Barcelona', 'Sevilla',
+    'Valencia'
+  ];
 
   /**
    * Creates a new View object. Creating all the elements in the HTML.
@@ -31,21 +39,16 @@ export class View {
     this.title.textContent = 'Weather Forecast';
     // The list of weather data will be displayed here
     this.weatherList = this.createElement('ul', 'weather-list')! as HTMLUListElement;
-    this.app.append(this.title, this.weatherList);
-  }
-
-  /**
-   * Creates an element with a tag and a class name
-   * @param tag tag name
-   * @param className class name
-   * @returns created element
-   */
-  private createElement(tag: string, className?: string): HTMLElement {
-    const element = document.createElement(tag);
-    if (className) {
-      element.classList.add(className);
-    }
-    return element;
+    // Drop down menu to select the location
+    this.locationSelect = this.createDropdownList();
+    // Slider to select the number of days to forecast
+    this.daysSliderContainer = this.createSlider();
+    // Submit button
+    this.submitButton = this.createElement('button')! as HTMLButtonElement;
+    this.submitButton.textContent = 'Submit';
+    // Append all elements to the root element
+    this.app.append(this.title, this.locationSelect, this.daysSliderContainer, 
+      this.submitButton, this.weatherList );
   }
 
   /**
@@ -78,6 +81,101 @@ export class View {
   }
 
   /**
+   * Updates the slider text value
+   */
+  public updateSliderTextValue(displayValue: string): void {
+    this.daysSliderContainer.querySelector('.slider-value')!.textContent =
+      displayValue;
+  }
+
+  /**
+   * Get the slider element
+   * @returns slider element
+   */
+  public getSlider(): HTMLInputElement {
+    // We prefix the class name with a dot to tell the querySelector
+    // that we are looking for a class name.
+    return this.daysSliderContainer.querySelector('.slider')!;
+  }
+  
+  /**
+   * Get the submit button element
+   * @returns submit button element
+   */
+  public getSubmitButton(): HTMLButtonElement {
+    return this.submitButton;
+  }
+
+  /**
+   * Get the location select element
+   * @returns location select element
+   */
+  public getLocationSelect(): HTMLSelectElement {
+    return this.locationSelect;
+  }
+ 
+  /**
+   * Creates a slider to select the number of days to forecast
+   */
+  private createSlider(): HTMLDivElement {
+    const sliderContainer: HTMLDivElement = this.createElement('div')! as
+      HTMLDivElement;
+    const labelTitle: HTMLLabelElement = this.createElement('label')! as
+      HTMLLabelElement;
+    labelTitle.textContent = 'Select the numbers of days: ';
+    sliderContainer.append(labelTitle);
+    const slider: HTMLInputElement = this.createElement('input','slider')! as
+      HTMLInputElement;
+    slider.type = 'range';
+    slider.min = '1';
+    slider.max = '10';
+    slider.value = '5';
+    slider.step = '1';
+    sliderContainer.append(slider);
+    const sliderValue: HTMLLabelElement = this.createElement('label', 
+      'slider-value')! as HTMLLabelElement;
+    sliderValue.textContent = slider.value;
+    sliderContainer.append(sliderValue);
+    return sliderContainer;
+  }
+
+  /**
+   * Creates an element with a tag and a class name
+   * @param tag tag name
+   * @param className class name
+   * @returns created element
+   */
+  private createElement(tag: string, className?: string): HTMLElement {
+    const element = document.createElement(tag);
+    if (className) {
+      element.classList.add(className);
+    }
+    return element;
+  }
+
+  /**
+   * Creates a dropdown list with the locations
+   * @returns dropdown list with the locations
+   */
+  private createDropdownList(): HTMLSelectElement {
+    const selectElement: HTMLSelectElement = this.createElement('select')! as
+      HTMLSelectElement;
+    const optionTitle: HTMLLabelElement = this.createElement('label')! as
+      HTMLLabelElement;
+    optionTitle.textContent = 'Select a location: ';
+    selectElement.append(optionTitle);
+    for (const location of this.availableLocations) {
+      const option: HTMLOptionElement = this.createElement('option')! as
+        HTMLOptionElement;
+      option.value = location;
+      option.text = location;
+      selectElement.append(option);
+    }
+    return selectElement;
+  }
+
+
+  /**
    * Create an image element with the weather icon based on the
    * chance to rain
    * @param chanceToRain number between 0 and 1 representing the 
@@ -87,10 +185,11 @@ export class View {
   private createWeatherImage(chanceToRain: number): HTMLImageElement {
     const image: HTMLImageElement = this.createElement('img')! as HTMLImageElement;
     const rainThreshold: number = 0.5;
-    image.src = this.imageBasePath + ((chanceToRain > rainThreshold) ? 
-      'rain.jpg' : 'sun.jpg');
-    image.width = 100;
-    image.height = 100;
+    const imageSize: number = 100;
+    image.src = this.imageBasePath + ((chanceToRain > rainThreshold) ?
+      'rain.png' : 'sun.png');
+    image.width = imageSize;
+    image.height = imageSize;
     return image;
   }
 

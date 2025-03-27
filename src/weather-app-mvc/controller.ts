@@ -17,41 +17,44 @@ import { View } from './view.js';
  * Controller component of the weather app.
  */
 export class Controller {
-  private readonly defaultNumberOfDays: number = 5;
-  private readonly defaultLocation: string = 'Tenerife';
   /**
    * Creates a new Controller object.
    * @param model - The model of the weather app.
    * @param view - The view of the weather app.
    */
-  constructor(private model: Model, private view: View) { }
+  constructor(private model: Model, private view: View) {
+    this.view.getSlider().addEventListener('input', this.handleSlider);
+    this.view.getLocationSelect().addEventListener('change', this.handleLocationSelection);
+    this.view.getSubmitButton().addEventListener('click', this.displayWeather);
+  }
 
   /**
    * Display the weather forecast data with the given input
    */
-  public async displayWeather(): Promise<void> {
-    const days: number = this.askNumberOfDaysToForecast();
-    const location: string = this.askLocationToForecast();
-    const data = await this.model.getData(days, location);
+  public displayWeather = async (): Promise<void> => {
+    const data = await this.model.getData();
     this.view.displayWeather(data);
   }
 
   /**
-   * Ask the user for the number of days to forecast
-   * @returns the number of days to forecast or the default value
+   * Handles the slider event, setting the number of days in the model and 
+   * updating the slider text value
+   * @param event event
    */
-  private askNumberOfDaysToForecast(): number {
-    const promptResult: string = prompt('Enter the number of days to forecast') ??
-      '';
-    return (promptResult === '') ? this.defaultNumberOfDays : parseInt(promptResult);
+  private handleSlider = (event: Event): void => {
+    const target: HTMLInputElement = event.target as HTMLInputElement;
+    const numberOfDays: number = parseInt(target.value);
+    this.model.setDays(numberOfDays);
+    this.view.updateSliderTextValue(target.value);
   }
 
   /**
-   * Ask the user for the location to forecast
-   * @returns the location to forecast
+   * Handles the location select event, setting the location in the model
+   * @param event event to handle
    */
-  private askLocationToForecast(): string {
-    const promptResult: string = prompt('Enter the location to forecast') ?? '';
-    return (promptResult === '') ? this.defaultLocation : promptResult;
+  private handleLocationSelection = (event: Event): void => {
+    const target: HTMLSelectElement = event.target as HTMLSelectElement;
+    const location: string = target.value;
+    this.model.setLocation(location);
   }
 }
