@@ -20,13 +20,7 @@ import { DropDownSliderWeatherView } from "../weather-view/drop-down-slider-weat
  * @brief WeatherBuilder class. 
  */
 export abstract class WeatherBuilder {
-  protected model: WeatherModel;
-  protected view: WeatherView;
-
-  constructor() {
-    this.model = new ApiWeatherModel();
-    this.view = new DropDownSliderWeatherView();
-  }
+  protected model: WeatherModel | null = null;
 
   /**
    * @brief Builds the weather app.
@@ -35,18 +29,29 @@ export abstract class WeatherBuilder {
   public abstract build(): WeatherController;
 
   /**
+   * @brief Builds the model of the weather app.
+   * @returns The model of the weather app.
+   */
+  public buildModel(): WeatherModel {
+    if (this.model) { // If the model is already created, return it.
+      return this.model
+    }
+    return new ApiWeatherModel();
+  }
+
+  /**
+   * @brief Builds the view of the weather app.
+   * @returns The view of the weather app.
+   */
+  public buildView(): WeatherView {
+    return new DropDownSliderWeatherView();
+  }
+  
+  /**
    * @brief Sets the model.
    * @param model The model.
    */
   public setModel(model: WeatherModel): void {
     this.model = model;
-  }
-
-  /**
-   * @brief Sets the view.
-   * @param view The view.
-   */
-  public setView(view: WeatherView): void {
-    this.view = view;
   }
 }
