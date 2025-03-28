@@ -15,6 +15,7 @@ import { WeatherView } from '../weather-view/weather-view.js';
 
 /**
  * Controller component of the weather app.
+ * It have to listen to the view and updates the model.
  */
 export abstract class WeatherController {
   constructor(protected model: WeatherModel, protected view: WeatherView) {}

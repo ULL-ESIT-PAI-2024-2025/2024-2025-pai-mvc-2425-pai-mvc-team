@@ -14,8 +14,7 @@ import { WeatherModel } from '../weather-model.js';
 import { WeatherData } from '../../data-types.js';
 
 /**
- * LocalWeatherModel class for the weather app, uses the weatherapi.com API to get
- * the weather data
+ * Class that uses local files to get the weather data
  */
 export class LocalWeatherModel extends WeatherModel {
   /**
@@ -34,6 +33,7 @@ export class LocalWeatherModel extends WeatherModel {
     const response = await fetch(this.location.toLowerCase() + '-forecast.json');
     const data: WeatherData = await response.json();
     data.forecast.forecastday = data.forecast.forecastday.slice(0, this.days);
+    this.calculateRainyDays(data);
     return data;
   }
 }

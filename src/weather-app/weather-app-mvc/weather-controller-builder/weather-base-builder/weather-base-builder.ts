@@ -14,7 +14,7 @@ import { WeatherBaseController } from "../../weather-controller/weather-base-con
 import { WeatherBuilder } from "../weather-builder.js";
 
 /**
- * Weather Builder for the Weather API Controller
+ * Weather Builder for the Weather Base Controller
  */
 export class WeatherBaseBuilder extends WeatherBuilder {
   override build(): WeatherBaseController {

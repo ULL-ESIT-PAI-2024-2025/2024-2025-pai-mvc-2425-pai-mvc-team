@@ -15,11 +15,13 @@ import { WeatherView } from '../../weather-view/weather-view.js';
 import { WeatherController } from '../weather-controller.js';
 
 /**
- * WeatherControllerApi component of the weather app.
+ * Weather controller component that uses a view with a forum for the number of 
+ * days and the location
  */
 export class WeatherForumController extends WeatherController {
   /**
-   * Creates a new WeatherControllerApi object.
+   * Creates a new weather controller listening to the view and updating the 
+   * model
    * @param model - The model of the weather app.
    * @param view - The view of the weather app.
    */
@@ -39,8 +41,8 @@ export class WeatherForumController extends WeatherController {
   }
 
   /**
-   * Handles the slider event, setting the number of days in the model and 
-   * updating the slider text value
+   * Handles the number of days form event, setting the number of days in the
+   * model
    * @param event event
    */
   override handleNumberOfDaysElement = (event: Event): void => {

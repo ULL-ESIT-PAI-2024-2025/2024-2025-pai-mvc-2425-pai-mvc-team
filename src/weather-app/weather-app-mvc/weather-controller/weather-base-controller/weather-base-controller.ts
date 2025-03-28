@@ -15,11 +15,12 @@ import { WeatherView } from '../../weather-view/weather-view.js';
 import { WeatherController } from '../weather-controller.js';
 
 /**
- * WeatherControllerApi component of the weather app.
+ * Weather controller component that uses a view with a slider and a select 
+ * element
  */
 export class WeatherBaseController extends WeatherController {
   /**
-   * Creates a new WeatherControllerApi object.
+   * Creates a weather controller listening to the view and updating the model
    * @param model - The model of the weather app.
    * @param view - The view of the weather app.
    */

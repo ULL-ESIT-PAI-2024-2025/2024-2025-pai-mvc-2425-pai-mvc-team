@@ -16,7 +16,7 @@ import { WeatherFormsView } from '../../weather-view/forms-view/forms-view.js';
 import { WeatherView } from "../../weather-view/weather-view.js";
 
 /**
- * Weather Builder for the Weather API Controller
+ * Weather Builder for the Weather Forum Controller
  */
 export class WeatherForumBuilder extends WeatherBuilder {
   /**
