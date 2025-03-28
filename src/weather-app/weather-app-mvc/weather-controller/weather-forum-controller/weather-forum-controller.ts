@@ -6,7 +6,7 @@
  * Patrón Modelo Vista Controlador
  *
  * @since Tue 25 Mar 2025 
- * @desc Controller that uses the api
+ *  Controller that uses the api
  * @see {@link https://github.com/ULL-ESIT-PAI-2024-2025/2024-2025-pai-mvc-2425-pai-mvc-team}
  */
 

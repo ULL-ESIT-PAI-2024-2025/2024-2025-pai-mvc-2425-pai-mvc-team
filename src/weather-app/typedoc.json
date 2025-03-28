@@ -1,18 +1,20 @@
 {
   "entryPoints": [
-    "./src/weather-app/weather-app-mvc/client/client.ts",
-    "./src/weather-app/weather-app-mvc/data-types.ts",
-    "./src/weather-app/weather-app-mvc/weather-controller/weather-base-controller/weather-base-controller.ts",
-    "./src/weather-app/weather-app-mvc/weather-controller/weather-controller.ts",
-    "./src/weather-app/weather-app-mvc/weather-controller/weather-local-controller/weather-local-controller.ts",
-    "./src/weather-app/weather-app-mvc/weather-controller-builder/weather-base-builder/weather-base-builder.ts",
-    "./src/weather-app/weather-app-mvc/weather-controller-builder/weather-builder.ts",
-    "./src/weather-app/weather-app-mvc/weather-model/api-weather-model/api-weather-model.ts",
-    "./src/weather-app/weather-app-mvc/weather-model/local-weather-model/local-weather-model.ts",
-    "./src/weather-app/weather-app-mvc/weather-model/weather-model.ts",
-    "./src/weather-app/weather-app-mvc/weather-view/drop-down-slider-weather-view/drop-down-slider-weather-view.ts",
-    "./src/weather-app/weather-app-mvc/weather-view/weather-view.ts"
+    "./weather-app-mvc/client/client.ts",
+    "./weather-app-mvc/data-types.ts",
+    "./weather-app-mvc/weather-controller/weather-base-controller/weather-base-controller.ts",
+    "./weather-app-mvc/weather-controller/weather-controller.ts",
+    "./weather-app-mvc/weather-controller/weather-base-controller/weather-base-controller.ts",
+    "./weather-app-mvc/weather-controller/weather-forum-controller/weather-forum-controller.ts",
+    "./weather-app-mvc/weather-controller-builder/weather-base-builder/weather-base-builder.ts",
+    "./weather-app-mvc/weather-controller-builder/weather-builder.ts",
+    "./weather-app-mvc/weather-controller-builder/weather-forum-builder/weather-forum-builder.ts",
+    "./weather-app-mvc/weather-model/api-weather-model/api-weather-model.ts",
+    "./weather-app-mvc/weather-model/local-weather-model/local-weather-model.ts",
+    "./weather-app-mvc/weather-model/weather-model.ts",
+    "./weather-app-mvc/weather-view/drop-down-slider-weather-view/drop-down-slider-weather-view.ts",
+    "./weather-app-mvc/weather-view/forms-view/forms-view.ts",
+    "./weather-app-mvc/weather-view/weather-view.ts"
   ],
   "out": "docs/weather-app"
-  
 }

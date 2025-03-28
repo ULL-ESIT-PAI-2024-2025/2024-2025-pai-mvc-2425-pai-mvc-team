@@ -6,7 +6,7 @@
  * Patrón Modelo Vista Controlador
  *
  * @since Tue 25 Mar 2025 
- * @desc Specifies the data types used in the application
+ *  Specifies the data types used in the application
  * @see 
  */
 

@@ -6,7 +6,7 @@
  * Patrón Modelo Vista Controlador
  *
  * @since Tue 25 Mar 2025 
- * @desc Weather Builder 
+ *  Weather Builder 
  * @see {@link https://github.com/ULL-ESIT-PAI-2024-2025/2024-2025-pai-mvc-2425-pai-mvc-team}
  */
 
@@ -17,19 +17,19 @@ import { WeatherView } from "../weather-view/weather-view.js";
 import { DropDownSliderWeatherView } from "../weather-view/drop-down-slider-weather-view/drop-down-slider-weather-view.js";
 
 /**
- * @brief WeatherBuilder class. 
+ * WeatherBuilder class. 
  */
 export abstract class WeatherBuilder {
   protected model: WeatherModel | null = null;
 
   /**
-   * @brief Builds the weather app.
+   * Builds the weather app.
    * @returns The weather app.
    */
   public abstract build(): WeatherController;
 
   /**
-   * @brief Builds the model of the weather app.
+   * Builds the model of the weather app.
    * @returns The model of the weather app.
    */
   public buildModel(): WeatherModel {
@@ -40,7 +40,7 @@ export abstract class WeatherBuilder {
   }
 
   /**
-   * @brief Builds the view of the weather app.
+   * Builds the view of the weather app.
    * @returns The view of the weather app.
    */
   public buildView(): WeatherView {
@@ -48,7 +48,7 @@ export abstract class WeatherBuilder {
   }
   
   /**
-   * @brief Sets the model.
+   * Sets the model.
    * @param model The model.
    */
   public setModel(model: WeatherModel): void {
