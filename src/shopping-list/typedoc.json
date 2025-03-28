@@ -1,0 +1,20 @@
+{
+  "entryPoints": [
+    "./shopping-list-function/client/client.ts",
+    "./shopping-list-function/controller.ts",
+    "./shopping-list-function/data-types.ts",
+    "./shopping-list-function/model.ts",
+    "./shopping-list-function/view.ts",
+    "./shopping-list-god-class/client/client.ts",
+    "./shopping-list-god-class/data-types.ts",
+    "./shopping-list-god-class/shopping-list.ts",
+    "./shopping-list-mvc/client/client.ts",
+    "./shopping-list-mvc/controller.ts",
+    "./shopping-list-mvc/data-types.ts",
+    "./shopping-list-mvc/model.ts",
+    "./shopping-list-mvc/view.ts",
+    "./web-server/app.js"
+  ],
+  "out": "./docs"
+  
+}
