@@ -17,19 +17,15 @@ import { WeatherView } from '../weather-view.js';
  * View using a drop down list and a slider 
  * component of the weather app.
  */
-export class DropDownSliderWeatherView implements WeatherView {
+export class WeatherFormsView implements WeatherView {
   private app: HTMLDivElement;
   private title: HTMLHeadingElement;
   private weatherList: HTMLUListElement;
-  private locationSelect: HTMLSelectElement;
-  private daysSliderContainer: HTMLDivElement;
+  private locationForm: HTMLFormElement;
+  private daysForm: HTMLFormElement;
   private submitButton: HTMLButtonElement;
   private readonly imageBasePath: string = 'resources/';
-  private readonly availableLocations: string[] = [
-    'Tenerife', 'Madrid',
-    'Barcelona', 'Sevilla',
-    'Valencia'
-  ];
+
 
   /**
    * Creates a new View object. Creating all the elements in the HTML.
@@ -42,20 +38,15 @@ export class DropDownSliderWeatherView implements WeatherView {
     this.title.textContent = 'Weather Forecast';
     // The list of weather data will be displayed here
     this.weatherList = this.createElement('ul', 'weather-list')! as HTMLUListElement;
-    // Drop down menu to select the location
-    this.locationSelect = this.createDropdownList();
-    // Slider to select the number of days to forecast
-    this.daysSliderContainer = this.createSlider();
-    // Updates the slider text value
-    this.getNumberOfDaysElement().addEventListener('input', (event: Event) => {
-      const target: HTMLInputElement = event.target as HTMLInputElement;
-      this.updateSliderTextValue(target.value);
-    });
+    // Form to select the location
+    this.locationForm = this.createFormElement('text', 'location', 'Location');
+    // Form to select the number of days to forecast
+    this.daysForm = this.createFormElement('number', 'days', 'Number of days');
     // Submit button
     this.submitButton = this.createElement('button')! as HTMLButtonElement;
     this.submitButton.textContent = 'Submit';
     // Append all elements to the root element
-    this.app.append(this.title, this.locationSelect, this.daysSliderContainer,
+    this.app.append(this.title, this.locationForm, this.daysForm,
       this.submitButton, this.weatherList);
   }
 
@@ -64,7 +55,6 @@ export class DropDownSliderWeatherView implements WeatherView {
    * @param weatherData weather data to display
    */
   public displayWeather(weatherData: WeatherData): void {
-    this.updateSliderTextValue(this.getNumberOfDaysElement().value);
     // Delete all nodes
     while (this.weatherList.firstChild) {
       this.weatherList.removeChild(this.weatherList.firstChild);
@@ -89,30 +79,32 @@ export class DropDownSliderWeatherView implements WeatherView {
     }
   }
 
-  /**
-   * Updates the slider text value
-   */
-  private updateSliderTextValue(displayValue: string): void {
-    this.daysSliderContainer.querySelector('.slider-value')!.textContent =
-      displayValue;
+  private createFormElement(type: string, name: string, placeholder: string): HTMLFormElement {
+    const formElement: HTMLFormElement = this.createElement('form')! as HTMLFormElement;
+    const inputElement: HTMLInputElement = this.createElement('input')! as HTMLInputElement;
+    inputElement.type = type;
+    inputElement.name = name;
+    inputElement.placeholder = placeholder;
+    const submitButton: HTMLButtonElement = this.createElement('button')! as HTMLButtonElement;
+    submitButton.textContent = 'Submit';
+    formElement.append(inputElement, submitButton);
+    return formElement;
   }
 
   /**
    * Get the slider element
    * @returns slider element
    */
-  public getNumberOfDaysElement(): HTMLInputElement {
-    // We prefix the class name with a dot to tell the querySelector
-    // that we are looking for a class name.
-    return this.daysSliderContainer.querySelector('.slider')!;
+  public getNumberOfDaysElement(): HTMLFormElement {
+    return this.daysForm;
   }
 
   /**
    * Get the location select element
    * @returns location select element
    */
-  public getLocationElement(): HTMLSelectElement {
-    return this.locationSelect;
+  public getLocationElement(): HTMLFormElement {
+    return this.locationForm;
   }
 
   /**
@@ -121,32 +113,6 @@ export class DropDownSliderWeatherView implements WeatherView {
    */
   public getSumbitChangesElement(): HTMLButtonElement {
     return this.submitButton;
-  }
-
-  /**
-   * Creates a slider to select the number of days to forecast
-   * @returns slider element
-   */
-  private createSlider(): HTMLDivElement {
-    const sliderContainer: HTMLDivElement = this.createElement('div')! as
-      HTMLDivElement;
-    const labelTitle: HTMLLabelElement = this.createElement('label')! as
-      HTMLLabelElement;
-    labelTitle.textContent = 'Select the numbers of days: ';
-    sliderContainer.append(labelTitle);
-    const slider: HTMLInputElement = this.createElement('input', 'slider')! as
-      HTMLInputElement;
-    slider.type = 'range';
-    slider.min = '1';
-    slider.max = '10';
-    slider.value = '5';
-    slider.step = '1';
-    sliderContainer.append(slider);
-    const sliderValue: HTMLLabelElement = this.createElement('label',
-      'slider-value')! as HTMLLabelElement;
-    sliderValue.textContent = slider.value;
-    sliderContainer.append(sliderValue);
-    return sliderContainer;
   }
 
   /**
@@ -161,27 +127,6 @@ export class DropDownSliderWeatherView implements WeatherView {
       element.classList.add(className);
     }
     return element;
-  }
-
-  /**
-   * Creates a dropdown list with the locations
-   * @returns dropdown list with the locations
-   */
-  private createDropdownList(): HTMLSelectElement {
-    const selectElement: HTMLSelectElement = this.createElement('select')! as
-      HTMLSelectElement;
-    const optionTitle: HTMLLabelElement = this.createElement('label')! as
-      HTMLLabelElement;
-    optionTitle.textContent = 'Select a location: ';
-    selectElement.append(optionTitle);
-    for (const location of this.availableLocations) {
-      const option: HTMLOptionElement = this.createElement('option')! as
-        HTMLOptionElement;
-      option.value = location;
-      option.text = location;
-      selectElement.append(option);
-    }
-    return selectElement;
   }
 
 

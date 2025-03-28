@@ -11,14 +11,18 @@
  * @see {@link https://github.com/ULL-ESIT-PAI-2024-2025/2024-2025-pai-mvc-2425-pai-mvc-team}
  */
 import { WeatherBaseBuilder } from '../weather-controller-builder/weather-base-builder/weather-base-builder.js';
+import { WeatherForumBuilder } from '../weather-controller-builder/weather-forum-builder/weather-forum-builder.js';
 // import { LocalWeatherModel } from '../weather-model/local-weather-model/local-weather-model.js';
+import { WeatherFormsView } from '../weather-view/forms-view/forms-view.js';
 
 /**
  * @brief Main function. Emulates the main function in C++.
  */
 async function main(): Promise<void> {
-  const builder: WeatherBaseBuilder = new WeatherBaseBuilder();
+  // const builder: WeatherBaseBuilder = new WeatherBaseBuilder();
+  const builder: WeatherBaseBuilder = new WeatherForumBuilder();
   // builder.setModel(new LocalWeatherModel());
+  builder.setView(new WeatherFormsView());
   const controller = builder.build();
   console.log(controller);
 }

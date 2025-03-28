@@ -17,7 +17,7 @@ import { WeatherController } from '../weather-controller.js';
 /**
  * WeatherControllerApi component of the weather app.
  */
-export class WeatherLocalController extends WeatherController {
+export class WeatherForumController extends WeatherController {
   /**
    * Creates a new WeatherControllerApi object.
    * @param model - The model of the weather app.
@@ -25,8 +25,8 @@ export class WeatherLocalController extends WeatherController {
    */
   constructor(model: WeatherModel, view: WeatherView) {
     super(model, view);
-    this.view.getNumberOfDaysElement().addEventListener('input', this.handleNumberOfDaysElement);
-    this.view.getLocationElement().addEventListener('change', this.handleLocationElement);
+    this.view.getNumberOfDaysElement().addEventListener('submit', this.handleNumberOfDaysElement);
+    this.view.getLocationElement().addEventListener('submit', this.handleLocationElement);
     this.view.getSumbitChangesElement().addEventListener('click', this.handleSumbitChangesElement);
   }
 
@@ -44,8 +44,9 @@ export class WeatherLocalController extends WeatherController {
    * @param event event
    */
   override handleNumberOfDaysElement = (event: Event): void => {
-    const target: HTMLInputElement = event.target as HTMLInputElement;
-    const numberOfDays: number = parseInt(target.value);
+    event.preventDefault();
+    const input: HTMLInputElement = this.view.getNumberOfDaysElement().querySelector('input')!;
+    const numberOfDays: number = parseInt(input.value);
     this.model.setDays(numberOfDays);
   }
 
@@ -54,8 +55,9 @@ export class WeatherLocalController extends WeatherController {
    * @param event event to handle
    */
   override handleLocationElement = (event: Event): void => {
-    const target: HTMLSelectElement = event.target as HTMLSelectElement;
-    const location: string = target.value;
+    event.preventDefault();
+    const input: HTMLInputElement = this.view.getLocationElement().querySelector('input')!;
+    const location: string = input.value;
     this.model.setLocation(location);
   }
 }
