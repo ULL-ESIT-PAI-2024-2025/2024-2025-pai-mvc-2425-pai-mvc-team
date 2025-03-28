@@ -1,0 +1,20 @@
+{
+  "entryPoints": [
+    "./src/shopping-list/shopping-list-function/client/client.ts",
+    "./src/shopping-list/shopping-list-function/controller.ts",
+    "./src/shopping-list/shopping-list-function/data-types.ts",
+    "./src/shopping-list/shopping-list-function/model.ts",
+    "./src/shopping-list/shopping-list-function/view.ts",
+    "./src/shopping-list/shopping-list-god-class/client/client.ts",
+    "./src/shopping-list/shopping-list-god-class/data-types.ts",
+    "./src/shopping-list/shopping-list-god-class/shopping-list.ts",
+    "./src/shopping-list/shopping-list-mvc/client/client.ts",
+    "./src/shopping-list/shopping-list-mvc/controller.ts",
+    "./src/shopping-list/shopping-list-mvc/data-types.ts",
+    "./src/shopping-list/shopping-list-mvc/model.ts",
+    "./src/shopping-list/shopping-list-mvc/view.ts",
+    "./src/shopping-list/web-server/app.js"
+  ],
+  "out": "docs/shopping-list"
+  
+}
