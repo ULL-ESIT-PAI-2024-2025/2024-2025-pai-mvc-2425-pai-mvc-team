@@ -27,34 +27,34 @@ app.use(express.static(__dirname));
 app.use(
   '/shopping-list-mvc', 
   express.static(
-    path.join(__dirname, '../../../dist/src/shopping-list/shopping-list-mvc/')
+    path.join(__dirname, '../dist/shopping-list-mvc/')
   )
 );
 app.use(
   '/shopping-list-god-class',
   express.static(
-    path.join(__dirname, '../../../dist/src/shopping-list/shopping-list-god-class/')
+    path.join(__dirname, '../dist/shopping-list-god-class/')
   )
 );
 app.use(
   '/shopping-list-function',
   express.static(
-    path.join(__dirname, '../../../dist/src/shopping-list/shopping-list-function/')
+    path.join(__dirname, '../dist/shopping-list-function/')
   )
 );
 app.use(
   '/docs',
   express.static(
-    path.join(__dirname, '../../../docs/shopping-list/')
+    path.join(__dirname, '../docs/')
   )
 );
 app.use(
   '/resources',
   express.static(
-    path.join(__dirname, '../../../resources/shopping-list/')
+    path.join(__dirname, '../resources/')
   )
 );
 // Start the server and listens for requests on the specified port
 const SERVER = app.listen(app.get('port'), '0.0.0.0', function () {
-  console.log('The server is running on http://10.6.128.30:' + app.get('port'));
+  console.log('The server is running on http://localhost:' + app.get('port'));
 });
