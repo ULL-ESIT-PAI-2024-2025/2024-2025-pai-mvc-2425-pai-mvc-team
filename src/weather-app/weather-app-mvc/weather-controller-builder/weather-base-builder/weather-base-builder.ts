@@ -18,6 +18,6 @@ import { WeatherBuilder } from "../weather-builder.js";
  */
 export class WeatherBaseBuilder extends WeatherBuilder {
   override build(): WeatherBaseController {
-    return new WeatherBaseController(this.model, this.view);
+    return new WeatherBaseController(this.buildModel(), this.buildView());
   }
 }
