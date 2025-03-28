@@ -16,20 +16,20 @@ import { WeatherData } from '../data-types.js';
  */
 export interface WeatherView {
   /**
-   * Gets the element that displays the weather data
-   * @returns the element that displays the weather data
+   * Gets the element that get the number of days to do the forecast.
+   * @returns the element that get the number of days to do the forecast.
    */
   getNumberOfDaysElement(): HTMLElement;
 
   /**
-   * Gets the element that displays the weather data
-   * @returns the element that displays the weather data
+   * Gets the element that get the location to do the forecast.
+   * @returns the element that get the location to do the forecast.
    */
   getLocationElement(): HTMLElement;
 
   /**
-   * Gets the element that displays the weather data
-   * @returns the element that displays the weather data
+   * Gets the element that get the submit changes button.
+   * @returns the element that get the submit changes button.
    */
   getSumbitChangesElement(): HTMLElement;
 

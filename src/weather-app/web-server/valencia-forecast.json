@@ -1,0 +1,97 @@
+{
+  "location": {
+    "name": "Valencia",
+    "region": "Carabobo",
+    "country": "Venezuela",
+    "lat": 10.1806,
+    "lon": -68.0039,
+    "tz_id": "America/Caracas",
+    "localtime_epoch": 1743119265,
+    "localtime": "2025-03-27 19:47"
+  },
+  "current": {},
+  "forecast": {
+    "forecastday": [
+      {
+        "date": "2025-03-27",
+        "day": {
+          "avgtemp_c": 24.8,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-03-28",
+        "day": {
+          "avgtemp_c": 24.1,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-03-29",
+        "day": {
+          "avgtemp_c": 23.9,
+          "daily_chance_of_rain": 88,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-03-30",
+        "day": {
+          "avgtemp_c": 24.3,
+          "daily_chance_of_rain": 86,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-03-31",
+        "day": {
+          "avgtemp_c": 23.4,
+          "daily_chance_of_rain": 89,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-04-01",
+        "day": {
+          "avgtemp_c": 21.8,
+          "daily_chance_of_rain": 80,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-04-02",
+        "day": {
+          "avgtemp_c": 23.7,
+          "daily_chance_of_rain": 86,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-04-03",
+        "day": {
+          "avgtemp_c": 23.5,
+          "daily_chance_of_rain": 79,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-04-04",
+        "day": {
+          "avgtemp_c": 23.5,
+          "daily_chance_of_rain": 84,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-04-05",
+        "day": {
+          "avgtemp_c": 23.5,
+          "daily_chance_of_rain": 87,
+          "isRainy": true
+        }
+      }
+    ]
+  }
+}

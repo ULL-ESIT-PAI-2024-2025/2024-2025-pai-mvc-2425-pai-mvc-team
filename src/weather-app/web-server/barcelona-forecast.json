@@ -1,0 +1,97 @@
+{
+  "location": {
+    "name": "Barcelona",
+    "region": "Catalonia",
+    "country": "Spain",
+    "lat": 41.3833,
+    "lon": 2.1833,
+    "tz_id": "Europe/Madrid",
+    "localtime_epoch": 1743119588,
+    "localtime": "2025-03-28 00:53"
+  },
+  "current": {},
+  "forecast": {
+    "forecastday": [
+      {
+        "date": "2025-03-28",
+        "day": {
+          "avgtemp_c": 14.2,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-03-29",
+        "day": {
+          "avgtemp_c": 13.9,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-03-30",
+        "day": {
+          "avgtemp_c": 13.4,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-03-31",
+        "day": {
+          "avgtemp_c": 14.4,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-04-01",
+        "day": {
+          "avgtemp_c": 13.5,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-04-02",
+        "day": {
+          "avgtemp_c": 13.4,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-04-03",
+        "day": {
+          "avgtemp_c": 13.9,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-04-04",
+        "day": {
+          "avgtemp_c": 14.2,
+          "daily_chance_of_rain": 83,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-04-05",
+        "day": {
+          "avgtemp_c": 16,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-04-06",
+        "day": {
+          "avgtemp_c": 15.2,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      }
+    ]
+  }
+}

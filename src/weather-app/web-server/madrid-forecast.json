@@ -1,0 +1,97 @@
+{
+  "location": {
+    "name": "Madrid",
+    "region": "Madrid",
+    "country": "Spain",
+    "lat": 40.4,
+    "lon": -3.6833,
+    "tz_id": "Europe/Madrid",
+    "localtime_epoch": 1743119541,
+    "localtime": "2025-03-28 00:52"
+  },
+  "current": {},
+  "forecast": {
+    "forecastday": [
+      {
+        "date": "2025-03-28",
+        "day": {
+          "avgtemp_c": 11.8,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-03-29",
+        "day": {
+          "avgtemp_c": 12.4,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-03-30",
+        "day": {
+          "avgtemp_c": 12,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-03-31",
+        "day": {
+          "avgtemp_c": 14.3,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-04-01",
+        "day": {
+          "avgtemp_c": 12.9,
+          "daily_chance_of_rain": 79,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-04-02",
+        "day": {
+          "avgtemp_c": 11.9,
+          "daily_chance_of_rain": 69,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-04-03",
+        "day": {
+          "avgtemp_c": 11.4,
+          "daily_chance_of_rain": 74,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-04-04",
+        "day": {
+          "avgtemp_c": 10.3,
+          "daily_chance_of_rain": 83,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-04-05",
+        "day": {
+          "avgtemp_c": 11.6,
+          "daily_chance_of_rain": 84,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-04-06",
+        "day": {
+          "avgtemp_c": 12.6,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      }
+    ]
+  }
+}

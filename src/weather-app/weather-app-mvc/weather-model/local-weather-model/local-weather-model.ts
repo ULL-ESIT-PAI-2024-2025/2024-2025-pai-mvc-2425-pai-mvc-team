@@ -18,11 +18,10 @@ import { WeatherData } from '../../data-types.js';
  * the weather data
  */
 export class LocalWeatherModel extends WeatherModel {
-
   /**
    * Creates a new Model
    */
-  constructor(private fileRoute: string) {
+  constructor() {
     super();
   }
 
@@ -32,8 +31,9 @@ export class LocalWeatherModel extends WeatherModel {
    */
   public override async getData(): Promise<WeatherData> {
     // Get the data from local json file
-    const response = await fetch(this.fileRoute);
-    const data = await response.json();
+    const response = await fetch(this.location.toLowerCase() + '-forecast.json');
+    const data: WeatherData = await response.json();
+    data.forecast.forecastday = data.forecast.forecastday.slice(0, this.days);
     return data;
   }
 }
