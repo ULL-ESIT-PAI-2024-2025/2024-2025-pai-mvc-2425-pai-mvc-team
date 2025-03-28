@@ -32,13 +32,6 @@ app.use(
 );
 
 app.use(
-  '/fetch-data', 
-  express.static(
-    path.join(__dirname, '../../../dist/src/weather-app/fetch-data/')
-  )
-);
-
-app.use(
   '/resources',
   express.static(
     path.join(__dirname, './resources/')

@@ -12,7 +12,7 @@
     "lint:ci": "eslint . --ext .tsx,.ts",
     "doc": "typedoc",
     "compile": "rm -rf dist/ && tsc",
-    "start": "node src/weather-app/web-server/app.js",
+    "start": "node web-server/app.js",
     "dstart": "npm run doc && npm run dstart"
   },
   "keywords": [

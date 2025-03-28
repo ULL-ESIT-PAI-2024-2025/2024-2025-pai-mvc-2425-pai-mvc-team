@@ -21,7 +21,7 @@
     "forceConsistentCasingInFileNames": true /* Force all file names to have the same case style */
   },
   "include": [
-    "src/**/*"
+    "**/*"
   ],
   "exclude": [
     "node_modules",
