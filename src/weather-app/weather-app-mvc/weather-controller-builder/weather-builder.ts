@@ -32,7 +32,7 @@ export abstract class WeatherBuilder {
    * Builds the model of the weather app.
    * @returns The model of the weather app.
    */
-  public buildModel(): WeatherModel {
+  protected buildModel(): WeatherModel {
     if (this.model) { // If the model is already created, return it.
       return this.model
     }
@@ -43,7 +43,7 @@ export abstract class WeatherBuilder {
    * Builds the view of the weather app.
    * @returns The view of the weather app.
    */
-  public buildView(): WeatherView {
+  protected buildView(): WeatherView {
     return new DropDownSliderWeatherView();
   }
   
