@@ -101,7 +101,7 @@ export abstract class WeatherView {
    * @param className class name
    * @returns created element
    */
-  static createElement(tag: string, className?: string): HTMLElement {
+  protected static createElement(tag: string, className?: string): HTMLElement {
     const element = document.createElement(tag);
     if (className) {
       element.classList.add(className);
@@ -110,10 +110,10 @@ export abstract class WeatherView {
   }
 
   /**
- * Format the daily forecast
- * @param forecast daily forecast
- * @returns formatted string with the daily forecast
- */
+   * Format the daily forecast
+   * @param forecast daily forecast
+   * @returns formatted string with the daily forecast
+   */
   private formatDailyForecast(forecast: ForecastDay): string {
     return 'Date: ' + forecast.date + ', ' +
       'Average temperature: ' + forecast.day.avgtemp_c + '°C, ' +

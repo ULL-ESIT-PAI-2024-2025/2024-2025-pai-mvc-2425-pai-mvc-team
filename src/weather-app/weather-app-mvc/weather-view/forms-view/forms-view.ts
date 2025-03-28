@@ -40,7 +40,7 @@ export class WeatherFormsView extends WeatherView {
     super(app, title, weatherList, locationForm, daysForm, submitButton);
   }
 
-  static createFormElement(type: string, name: string, placeholder: string): HTMLFormElement {
+  private static createFormElement(type: string, name: string, placeholder: string): HTMLFormElement {
     const formElement: HTMLFormElement = WeatherView.createElement('form')! as HTMLFormElement;
     const inputElement: HTMLInputElement = WeatherView.createElement('input')! as HTMLInputElement;
     inputElement.type = type;
