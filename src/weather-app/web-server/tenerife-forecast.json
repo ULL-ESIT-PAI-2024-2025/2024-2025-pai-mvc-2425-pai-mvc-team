@@ -1,0 +1,97 @@
+{
+  "location": {
+    "name": "Tenerife",
+    "region": "Canarias",
+    "country": "Spain",
+    "lat": 28.0041,
+    "lon": -16.5921,
+    "tz_id": "Atlantic/Canary",
+    "localtime_epoch": 1743119432,
+    "localtime": "2025-03-27 23:50"
+  },
+  "current": {},
+  "forecast": {
+    "forecastday": [
+      {
+        "date": "2025-03-27",
+        "day": {
+          "avgtemp_c": 17.5,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-03-28",
+        "day": {
+          "avgtemp_c": 17.2,
+          "daily_chance_of_rain": 89,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-03-29",
+        "day": {
+          "avgtemp_c": 17.4,
+          "daily_chance_of_rain": 71,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-03-30",
+        "day": {
+          "avgtemp_c": 18,
+          "daily_chance_of_rain": 89,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-03-31",
+        "day": {
+          "avgtemp_c": 17.9,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-04-01",
+        "day": {
+          "avgtemp_c": 17.9,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-04-02",
+        "day": {
+          "avgtemp_c": 17.3,
+          "daily_chance_of_rain": 86,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-04-03",
+        "day": {
+          "avgtemp_c": 16.8,
+          "daily_chance_of_rain": 89,
+          "isRainy": true
+        }
+      },
+      {
+        "date": "2025-04-04",
+        "day": {
+          "avgtemp_c": 17.4,
+          "daily_chance_of_rain": 0,
+          "isRainy": false
+        }
+      },
+      {
+        "date": "2025-04-05",
+        "day": {
+          "avgtemp_c": 17.5,
+          "daily_chance_of_rain": 88,
+          "isRainy": true
+        }
+      }
+    ]
+  }
+}

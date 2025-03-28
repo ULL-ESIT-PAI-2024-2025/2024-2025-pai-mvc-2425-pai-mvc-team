@@ -1,0 +1,54 @@
+html {
+  font-family: sans-serif;
+  font-size: 1rem;
+  color: black;
+  background-color: LightSteelBlue;
+}
+
+form {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+button {
+  cursor: pointer;
+  background: CornflowerBlue;
+  color: black;
+  border: 2px solid MidnightBlue;
+  margin: 0.5rem;
+}
+
+h1 {
+  color: black;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: LightCyan;
+  border-radius: 4px;
+}
+
+li span {
+  display: inline-block;
+  padding: .5rem;
+  width: 250px;
+  border-radius: 4px;
+  border: 2px solid transparent;
+}
+
+li span:hover {
+  background: SteelBlue;
+}
+
+li span:focus {
+  outline: 0;
+  border: 2px solid RoyalBlue;
+  background: LightSkyBlue;
+}
