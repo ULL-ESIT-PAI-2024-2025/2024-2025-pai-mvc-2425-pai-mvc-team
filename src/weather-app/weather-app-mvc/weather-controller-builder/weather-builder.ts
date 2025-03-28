@@ -49,12 +49,4 @@ export abstract class WeatherBuilder {
   public setView(view: WeatherView): void {
     this.view = view;
   }
-
-  /**
-   * @brief Gets the model.
-   * @returns The model.
-   */
-  public getModel(): WeatherModel {
-    return this.model;
-  }
 }

@@ -44,6 +44,13 @@ app.use(
     path.join(__dirname, './resources/')
   )
 );
+
+app.use(
+  '/docs',
+  express.static(
+    path.join(__dirname, '../../../docs/weather-app/')
+  )
+);
 // Start the server and listens for requests on the specified port
 const SERVER = app.listen(app.get('port'), '0.0.0.0', function () {
   console.log('The server is running on http://10.6.128.30:' + app.get('port'));
