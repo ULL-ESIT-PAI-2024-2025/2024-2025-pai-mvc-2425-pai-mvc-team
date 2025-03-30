@@ -40,7 +40,7 @@ export class WeatherBaseController extends WeatherController {
    * updating the slider text value
    * @param event event
    */
-  override handleNumberOfDaysElement = (event: Event): void => {
+  protected override handleNumberOfDaysElement = (event: Event): void => {
     const target: HTMLInputElement = event.target as HTMLInputElement;
     const numberOfDays: number = parseInt(target.value);
     this.model.setDays(numberOfDays);
@@ -50,7 +50,7 @@ export class WeatherBaseController extends WeatherController {
    * Handles the location select event, setting the location in the model
    * @param event event to handle
    */
-  override handleLocationElement = (event: Event): void => {
+  protected override handleLocationElement = (event: Event): void => {
     const target: HTMLSelectElement = event.target as HTMLSelectElement;
     const location: string = target.value;
     this.model.setLocation(location);

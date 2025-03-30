@@ -40,7 +40,7 @@ export class WeatherForumController extends WeatherController {
    * model
    * @param event event
    */
-  override handleNumberOfDaysElement = (event: Event): void => {
+  protected override handleNumberOfDaysElement = (event: Event): void => {
     event.preventDefault();
     const input: HTMLInputElement = this.view.getNumberOfDaysElement().querySelector('input')!;
     const numberOfDays: number = parseInt(input.value);
@@ -51,7 +51,7 @@ export class WeatherForumController extends WeatherController {
    * Handles the location select event, setting the location in the model
    * @param event event to handle
    */
-  override handleLocationElement = (event: Event): void => {
+  protected override handleLocationElement = (event: Event): void => {
     event.preventDefault();
     const input: HTMLInputElement = this.view.getLocationElement().querySelector('input')!;
     const location: string = input.value;

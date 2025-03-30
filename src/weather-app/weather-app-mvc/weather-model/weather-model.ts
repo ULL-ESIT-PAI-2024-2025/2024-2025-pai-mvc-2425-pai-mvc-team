@@ -19,18 +19,13 @@ import { WeatherData } from '../data-types.js';
  * Model base abstract class for the weather app
  */
 export abstract class WeatherModel {
-  protected readonly defaultDays: number = 5;
-  protected readonly defaultLocation: string = 'Tenerife';
-  protected days: number;
-  protected location: string;
+  protected days: number = 5;
+  protected location: string = 'Tenerife';
   
   /**
    * Creates a new Model
    */
-  constructor(protected rainyDayThreeshold = 0.5) {
-    this.days = this.defaultDays;
-    this.location = this.defaultLocation;
-  }
+  constructor(protected rainyDayThreeshold = 0.5) { }
 
   /**
    * Get the weather data
