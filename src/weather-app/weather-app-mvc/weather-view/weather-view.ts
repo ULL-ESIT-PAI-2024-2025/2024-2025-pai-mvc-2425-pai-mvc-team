@@ -83,6 +83,20 @@ export abstract class WeatherView {
   }
 
   /**
+   * Creates an element with a tag and a class name
+   * @param tag tag name
+   * @param className class name
+   * @returns created element
+   */
+  protected static createElement(tag: string, className?: string): HTMLElement {
+    const element = document.createElement(tag);
+    if (className) {
+      element.classList.add(className);
+    }
+    return element;
+  }
+
+  /**
    * Create an image element with the weather icon based on the
    * chance to rain
    * @param forecast daily forecast
@@ -96,20 +110,6 @@ export abstract class WeatherView {
     image.width = imageSize;
     image.height = imageSize;
     return image;
-  }
-
-  /**
-   * Creates an element with a tag and a class name
-   * @param tag tag name
-   * @param className class name
-   * @returns created element
-   */
-  protected static createElement(tag: string, className?: string): HTMLElement {
-    const element = document.createElement(tag);
-    if (className) {
-      element.classList.add(className);
-    }
-    return element;
   }
 
   /**
