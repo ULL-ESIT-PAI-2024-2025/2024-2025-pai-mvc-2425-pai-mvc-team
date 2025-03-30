@@ -21,17 +21,25 @@ import { WeatherView } from '../weather-view/weather-view.js';
  * It have to listen to the view and updates the model.
  */
 export abstract class WeatherController {
-  constructor(protected model: WeatherModel, protected view: WeatherView) {}
+  constructor(protected model: WeatherModel, protected view: WeatherView) { }
+
   /**
-   * Handles the elements that get the number of days
+   * Handles the elements that get the number of days.
+   * @param event event to handle.
    */
   protected abstract handleNumberOfDaysElement(event: Event): void;
+
   /**
    * Handles the elements that get the location
    */
   protected abstract handleLocationElement(event: Event): void;
+
   /**
-   * Handles the elements that submit changes
+   * Handles the elements that submit changes.
+   * Display the weather forecast data with the given input.
    */
-  protected abstract handleSumbitChangesElement(): Promise<void>;
+  protected handleSumbitChangesElement = async (): Promise<void> => {
+    const data = await this.model.getData();
+    this.view.displayWeather(data);
+  }
 }

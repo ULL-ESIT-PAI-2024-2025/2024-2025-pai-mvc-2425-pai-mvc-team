@@ -36,14 +36,6 @@ export class WeatherBaseController extends WeatherController {
   }
 
   /**
-   * Display the weather forecast data with the given input
-   */
-  override handleSumbitChangesElement = async (): Promise<void> => {
-    const data = await this.model.getData();
-    this.view.displayWeather(data);
-  }
-
-  /**
    * Handles the slider event, setting the number of days in the model and 
    * updating the slider text value
    * @param event event

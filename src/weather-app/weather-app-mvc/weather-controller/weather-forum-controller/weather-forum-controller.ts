@@ -36,14 +36,6 @@ export class WeatherForumController extends WeatherController {
   }
 
   /**
-   * Display the weather forecast data with the given input
-   */
-  override handleSumbitChangesElement = async (): Promise<void> => {
-    const data = await this.model.getData();
-    this.view.displayWeather(data);
-  }
-
-  /**
    * Handles the number of days form event, setting the number of days in the
    * model
    * @param event event
