@@ -33,7 +33,7 @@ export abstract class WeatherBuilder {
    * @returns The model of the weather app.
    */
   protected buildModel(): WeatherModel {
-    if (this.model) { // If the model is already created, return it.
+    if (this.model) {
       return this.model
     }
     return new ApiWeatherModel();

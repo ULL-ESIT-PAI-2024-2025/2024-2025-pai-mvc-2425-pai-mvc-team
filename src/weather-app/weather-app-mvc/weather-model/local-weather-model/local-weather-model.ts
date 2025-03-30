@@ -25,14 +25,14 @@ export class LocalWeatherModel extends WeatherModel {
   }
 
   /**
-   * Get the weather data from local storage
+   * Get the weather data from local storage.
+   * The file must be in the resources directory and must be named 
+   * <location>-forecast.json
    * @returns a promise with the weather data
    */
   public override async getData(): Promise<WeatherData> {
     const response = await fetch(
-      '/resources/' // We get the data from the local file stored in the resources directory
-      + this.location.toLowerCase() // The file name is the location name in lowercase
-      + '-forecast.json'            // finished with -forecast.json
+      '/resources/' + this.location.toLowerCase() + '-forecast.json'            
     );
     const data: WeatherData = await response.json();
     data.forecast.forecastday = data.forecast.forecastday.slice(0, this.days);

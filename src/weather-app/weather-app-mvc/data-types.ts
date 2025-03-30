@@ -49,6 +49,3 @@ export type LocationData = {
   tz_id: string;
   localtime: string;
 };
-
-
-

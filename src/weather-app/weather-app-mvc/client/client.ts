@@ -26,7 +26,7 @@ async function main(): Promise<void> {
   const modelOptionInput: string | null = prompt('Choose an option: 1. Remote, 2. Local');
   const MODEL_OPTION: number | null = modelOptionInput ? parseInt(modelOptionInput) : null;
   // Build the desired controller
-  let BUILDER: WeatherBuilder = new WeatherBaseBuilder(); // Default
+  let BUILDER: WeatherBuilder = new WeatherBaseBuilder();
   if (VIEW_OPTION === 1) {
     BUILDER = new WeatherBaseBuilder();
   } else if (VIEW_OPTION === 2) {

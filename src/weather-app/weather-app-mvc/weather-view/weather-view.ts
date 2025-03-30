@@ -27,6 +27,7 @@ export abstract class WeatherView {
     protected submitButton: HTMLElement,
     protected readonly imageBasePath: string = 'resources/'
   ) { }
+
   /**
    * Gets the element that get the number of days to do the forecast.
    * @returns the element that get the number of days to do the forecast.
@@ -56,11 +57,9 @@ export abstract class WeatherView {
    * @param weatherData weather data to display
    */
   public displayWeather(weatherData: WeatherData): void {
-    // Delete all nodes
     while (this.weatherList.firstChild) {
       this.weatherList.removeChild(this.weatherList.firstChild);
     }
-    // Show default message if no data
     if (weatherData.forecast.forecastday.length === 0) {
       const baseParagraph: HTMLParagraphElement = WeatherView.createElement('p')! as
         HTMLParagraphElement;

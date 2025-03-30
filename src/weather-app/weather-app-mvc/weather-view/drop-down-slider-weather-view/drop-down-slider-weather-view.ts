@@ -28,21 +28,14 @@ export class DropDownSliderWeatherView extends WeatherView {
    * Creates a new View object creating all the elements in the HTML.
    */
   constructor() {
-    // The root element
     const app: HTMLDivElement = document.getElementById('root')! as HTMLDivElement;
-    // The title of the app
     const title: HTMLHeadingElement = WeatherView.createElement('h1')! as HTMLHeadingElement;
     title.textContent = 'Weather Forecast';
-    // The list of weather data will be displayed here
     const weatherList = WeatherView.createElement('ul', 'weather-list')! as HTMLUListElement;
-    // Drop down menu to select the location
     const locationSelect = DropDownSliderWeatherView.createDropdownList();
-    // Slider to select the number of days to forecast
     const daysSliderContainer = DropDownSliderWeatherView.createSlider();
-    // Submit button
     const submitButton = WeatherView.createElement('button')! as HTMLButtonElement;
     submitButton.textContent = 'Submit';
-    // Append all elements to the root element
     app.append(title, locationSelect, daysSliderContainer,
       submitButton, weatherList);
     super(app, title, weatherList, locationSelect, daysSliderContainer, submitButton);
