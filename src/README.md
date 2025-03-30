@@ -26,4 +26,4 @@ In order to run the code examples, do the following:
    npm start
    ```
 
-5. Open your browser and go to `http://localhost:<port>` to see the application in action. 
+5. Open your browser and go to `http://localhost:<port>` to see the application in action.
