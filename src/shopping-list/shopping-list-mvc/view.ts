@@ -7,6 +7,10 @@
  *
  * @since Tue 25 Mar 2025 
  * @desc View class for the shopping list
+ * @author Guillermo Silva González
+ * @author Himar Edhey Hernández Alonso
+ * @author Samuel Rodríguez Cuesta
+ * @see {@link https://github.com/ULL-ESIT-PAI-2024-2025/2024-2025-pai-mvc-2425-pai-mvc-team}
  * @see {@link https://github.com/taniarascia/mvc}
  */
 import { ItemData } from './data-types.js';
@@ -25,23 +29,17 @@ export class View {
    * Creates a new View object. Creating all the elements in the HTML.
    */
   constructor() {
-    // The root element
     this.app = document.getElementById('root')! as HTMLDivElement;
-    // The title of the app
     this.title = this.createElement('h1')! as HTMLHeadingElement;
     this.title.textContent = 'Shopping List'
-    // The form, has a input as a text and a submit button
     this.form = this.createElement('form')! as HTMLFormElement;
-    // Input element (text)
     this.input = this.createElement('input')! as HTMLInputElement;
     this.input.type = 'text';
     this.input.placeholder = 'Add item';
     this.input.name = 'item';
-    // Submit button
     this.submitButton = this.createElement('button')! as HTMLButtonElement;
     this.submitButton.textContent = 'Submit'
     this.form.append(this.input, this.submitButton)
-    // The list of items will be displayed here
     this.itemList = this.createElement('ul', 'item-list')! as HTMLUListElement;
     this.app.append(this.title, this.form, this.itemList)
   }
@@ -92,12 +90,10 @@ export class View {
    * @param items items to display
    */
   public displayItems(items: ItemData[]): void {
-    // Delete all nodes
     while (this.itemList.firstChild) {
       this.itemList.removeChild(this.itemList.firstChild);
     }
 
-    // Show default message
     if (items.length === 0) {
       const baseParagraph: HTMLParagraphElement = this.createElement('p')! as
         HTMLParagraphElement;
