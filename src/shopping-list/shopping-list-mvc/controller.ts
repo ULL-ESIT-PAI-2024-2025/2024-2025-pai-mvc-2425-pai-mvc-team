@@ -16,7 +16,6 @@
 
 import { Model } from './model.js'
 import { View } from './view.js'
-import { ItemData } from './data-types.js'
 
 /**
  * Controller component of the shopping list.
@@ -28,7 +27,7 @@ export class Controller {
    * @param view - The view of the shopping list.
    */
   constructor(private model: Model, private view: View) {
-    this.displayChanges(this.model.getItems());
+    this.view.displayItems(this.model.getItems());
     // We use Arrow functions since they don't have their own bindings 
     // to this, arguments, or super, see the function example
     // for more details.
@@ -45,7 +44,7 @@ export class Controller {
     const id: string | undefined = target.parentElement?.id;
     if (target?.classList?.contains('delete') && id) {
       this.model.removeItem(parseInt(id!));
-      this.displayChanges(this.model.getItems());
+      this.view.displayItems(this.model.getItems());
     }
   }
 
@@ -62,18 +61,9 @@ export class Controller {
     const input: HTMLInputElement = this.view.getInput();
     if (input.value) {
       this.model.addItem(input.value);
-      this.displayChanges(this.model.getItems());
+      this.view.displayItems(this.model.getItems());
       // Resets the input field
       input.value = '';
     }
-  }
-
-
-  /**
-   * Tells the view to display the items.
-   * @param items changed items
-   */
-  private displayChanges(items: ItemData[]): void {
-    this.view.displayItems(items);
   }
 }

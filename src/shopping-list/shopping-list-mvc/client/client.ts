@@ -24,8 +24,7 @@ import { Controller } from '../controller.js';
 function main(): void {
   const model: Model = new Model();
   const view: View = new View();
-  const controller: Controller = new Controller(model, view);
-  console.log(controller);
+  new Controller(model, view);
 }
 
 main();
