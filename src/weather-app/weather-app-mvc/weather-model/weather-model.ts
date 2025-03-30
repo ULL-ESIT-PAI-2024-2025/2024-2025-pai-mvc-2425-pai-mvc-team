@@ -5,8 +5,11 @@
  * Programación de Aplicaciones Interactivas
  * Patrón Modelo Vista Controlador
  *
+ * Model abstract class for the weather app
  * @since Tue 25 Mar 2025 
- *  Model abstract class for the weather app
+ * @author Guillermo Silva González
+ * @author Himar Edhey Hernández Alonso
+ * @author Samuel Rodríguez Cuesta
  * @see {@link https://github.com/ULL-ESIT-PAI-2024-2025/2024-2025-pai-mvc-2425-pai-mvc-team}
  */
 
@@ -53,7 +56,7 @@ export abstract class WeatherModel {
 
   /**
    * Sets the isRainy property of the forecast days based on the 
-   * daily_chance_of_rain
+   * daily_chance_of_rain property of the forecast
    * @param data weather data
    */
   protected calculateRainyDays(data: WeatherData): void {

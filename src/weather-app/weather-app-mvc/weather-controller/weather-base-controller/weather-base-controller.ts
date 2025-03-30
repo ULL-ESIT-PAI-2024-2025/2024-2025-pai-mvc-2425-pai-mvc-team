@@ -4,9 +4,13 @@
  * Grado en Ingeniería Informática
  * Programación de Aplicaciones Interactivas
  * Patrón Modelo Vista Controlador
- *
+ * 
+ * Controller that uses an HTML slider for the number of days and a select 
+ * element to set the location
  * @since Tue 25 Mar 2025 
- *  Controller that uses the api
+ * @author Guillermo Silva González
+ * @author Himar Edhey Hernández Alonso
+ * @author Samuel Rodríguez Cuesta
  * @see {@link https://github.com/ULL-ESIT-PAI-2024-2025/2024-2025-pai-mvc-2425-pai-mvc-team}
  */
 

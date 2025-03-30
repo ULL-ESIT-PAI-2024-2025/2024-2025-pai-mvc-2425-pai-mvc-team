@@ -4,12 +4,15 @@
  * Grado en Ingeniería Informática
  * Programación de Aplicaciones Interactivas
  * Patrón Modelo Vista Controlador
- *
+ * 
+ * View class for the weather app
  * @since Tue 25 Mar 2025 
- *  View class for the weather app
- * Uncomment the lines below to use the LocalWeatherModel
+ * @author Guillermo Silva González
+ * @author Himar Edhey Hernández Alonso
+ * @author Samuel Rodríguez Cuesta
  * @see {@link https://github.com/ULL-ESIT-PAI-2024-2025/2024-2025-pai-mvc-2425-pai-mvc-team}
  */
+
 import { WeatherForumBuilder } from '../weather-controller-builder/weather-forum-builder/weather-forum-builder.js';
 import { WeatherBuilder } from '../weather-controller-builder/weather-builder.js';
 import { WeatherBaseBuilder } from '../weather-controller-builder/weather-base-builder/weather-base-builder.js';

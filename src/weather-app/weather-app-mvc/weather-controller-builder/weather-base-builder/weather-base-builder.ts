@@ -5,8 +5,11 @@
  * Programación de Aplicaciones Interactivas
  * Patrón Modelo Vista Controlador
  *
+ * Weather Builder for the Weather API Controller 
  * @since Tue 25 Mar 2025 
- *  Weather Builder for the Weather API Controller 
+ * @author Guillermo Silva González
+ * @author Himar Edhey Hernández Alonso
+ * @author Samuel Rodríguez Cuesta
  * @see {@link https://github.com/ULL-ESIT-PAI-2024-2025/2024-2025-pai-mvc-2425-pai-mvc-team}
  */
 

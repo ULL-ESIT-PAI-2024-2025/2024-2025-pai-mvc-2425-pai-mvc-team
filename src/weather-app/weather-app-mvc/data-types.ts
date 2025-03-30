@@ -5,9 +5,12 @@
  * Programación de Aplicaciones Interactivas
  * Patrón Modelo Vista Controlador
  *
+ * Specifies the data types used in the application
  * @since Tue 25 Mar 2025 
- *  Specifies the data types used in the application
- * @see 
+ * @author Guillermo Silva González
+ * @author Himar Edhey Hernández Alonso
+ * @author Samuel Rodríguez Cuesta
+ * @see {@link https://github.com/ULL-ESIT-PAI-2024-2025/2024-2025-pai-mvc-2425-pai-mvc-team}
  */
 
 /**

@@ -5,11 +5,15 @@
  * Programación de Aplicaciones Interactivas
  * Patrón Modelo Vista Controlador
  *
- * @since Tue 25 Mar 2025 
- *  View using a drop down list and a slider class for 
+ * View using a drop down list and a slider class for 
  * the weather app
+ * @since Tue 25 Mar 2025 
+ * @author Guillermo Silva González
+ * @author Himar Edhey Hernández Alonso
+ * @author Samuel Rodríguez Cuesta
  * @see {@link https://github.com/ULL-ESIT-PAI-2024-2025/2024-2025-pai-mvc-2425-pai-mvc-team}
  */
+
 import { WeatherView } from '../weather-view.js';
 
 /**
