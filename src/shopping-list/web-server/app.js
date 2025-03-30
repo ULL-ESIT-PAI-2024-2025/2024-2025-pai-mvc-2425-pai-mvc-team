@@ -35,9 +35,9 @@ app.use(
   )
 );
 app.use(
-  '/shopping-list-god-class',
+  '/shopping-list-bad',
   express.static(
-    path.join(__dirname, '../dist/shopping-list-god-class/')
+    path.join(__dirname, '../dist/shopping-list-bad/')
   )
 );
 app.use(

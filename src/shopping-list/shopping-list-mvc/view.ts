@@ -93,7 +93,6 @@ export class View {
     while (this.itemList.firstChild) {
       this.itemList.removeChild(this.itemList.firstChild);
     }
-
     if (items.length === 0) {
       const baseParagraph: HTMLParagraphElement = this.createElement('p')! as
         HTMLParagraphElement;
