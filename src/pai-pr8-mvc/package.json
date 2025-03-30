@@ -4,7 +4,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "compile": "rm -rf www/build && tsc"
   },
   "author": "",
   "license": "ISC",
