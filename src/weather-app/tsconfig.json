@@ -30,6 +30,7 @@
     "test",
     "public",
     "read-JSON-app",
-    "dist"
+    "dist",
+    "docs"
   ]
 }

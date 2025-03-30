@@ -27,7 +27,7 @@ app.use(express.static(__dirname));
 app.use(
   '/weather-app-mvc', 
   express.static(
-    path.join(__dirname, '../../../dist/src/weather-app/weather-app-mvc/')
+    path.join(__dirname, '../dist/weather-app-mvc/')
   )
 );
 
@@ -41,7 +41,7 @@ app.use(
 app.use(
   '/docs',
   express.static(
-    path.join(__dirname, '../../../docs/weather-app/')
+    path.join(__dirname, '../docs/weather-app/')
   )
 );
 // Start the server and listens for requests on the specified port
