@@ -19,5 +19,14 @@
     "target": "ESNext",
     "rewriteRelativeImportExtensions": true
   },
-  "include": ["./src/**/*.ts"]
+  "include": ["./src/**/*.ts"],
+  "exclude": [
+    "node_modules",
+    "build",
+    "lib",
+    "test",
+    "public",
+    "www",
+    "doc"
+  ]
 }
